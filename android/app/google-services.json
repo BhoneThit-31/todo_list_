@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "114422729185",
+    "project_id": "todo-list-be08f",
+    "storage_bucket": "todo-list-be08f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114422729185:android:94d8d8029791d57418eaa0",
+        "android_client_info": {
+          "package_name": "com.example.note_train_firebase_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114422729185-3mv6938ga6proq41t8lnfivmp10au47l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9WuQSe4dCdioCAbGarpSTe1-t6Ws3kGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114422729185-3mv6938ga6proq41t8lnfivmp10au47l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114422729185-97jhvjia0ihubdh20loeh4pnu18n6da5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.noteTrainFirebaseGetx"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
