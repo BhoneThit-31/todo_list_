@@ -17,9 +17,8 @@ class HomeController extends GetxController {
   void onReady() {
     super.onReady();
 
-    // Listen to auth state changes (login/logout)
     _auth.authStateChanges().listen((user) {
-      todoSubscription?.cancel(); // Cancel any previous subscription
+      todoSubscription?.cancel();
 
       if (user != null) {
         _startListeningToTodos(user.uid);
@@ -28,7 +27,6 @@ class HomeController extends GetxController {
       }
     });
 
-    // Initial load if user already signed in
     if (userId.isNotEmpty) {
       _startListeningToTodos(userId);
     }
@@ -62,7 +60,6 @@ class HomeController extends GetxController {
           },
           onError: (error) {
             print('Error listening to todos: $error');
-            // Optionally show a user-friendly error message here
           },
         );
   }

@@ -11,7 +11,6 @@ class AuthController extends GetxController {
   void onInit() {
     super.onInit();
     firebaseUser.bindStream(_auth.authStateChanges());
-    // No navigation here
   }
 
   Future<void> register(String email, String password) async {
@@ -32,9 +31,9 @@ class AuthController extends GetxController {
         barrierDismissible: false,
       );
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.back(); // Close loading dialog
+      Get.back();
     } on FirebaseAuthException catch (e) {
-      Get.back(); // Ensure dialog closes on error
+      Get.back();
       Get.snackbar('Login Error', e.message ?? 'Unknown error');
     }
   }
