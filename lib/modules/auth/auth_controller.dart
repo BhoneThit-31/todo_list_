@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:note_train_firebase_getx/app_routes.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -19,6 +20,8 @@ class AuthController extends GetxController {
         email: email,
         password: password,
       );
+      Get.back();
+      Get.offAllNamed(AppRoutes.home);
     } on FirebaseAuthException catch (e) {
       Get.snackbar('Registration Error', e.message ?? 'Unknown error');
     }
@@ -30,8 +33,10 @@ class AuthController extends GetxController {
         const Center(child: CircularProgressIndicator()),
         barrierDismissible: false,
       );
+
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       Get.back();
+      Get.offAllNamed(AppRoutes.home);
     } on FirebaseAuthException catch (e) {
       Get.back();
       Get.snackbar('Login Error', e.message ?? 'Unknown error');
@@ -40,6 +45,7 @@ class AuthController extends GetxController {
 
   Future<void> logout() async {
     await _auth.signOut();
+    Get.offAllNamed(AppRoutes.login);
   }
 
   String get userId => firebaseUser.value?.uid ?? '';

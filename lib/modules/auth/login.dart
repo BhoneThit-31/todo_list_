@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:note_train_firebase_getx/app_routes.dart';
 import 'package:note_train_firebase_getx/modules/auth/auth_controller.dart';
 import 'package:note_train_firebase_getx/modules/auth/register.dart';
 
@@ -59,7 +60,7 @@ class Login extends StatelessWidget {
               const SizedBox(height: 24),
               TextButton(
                 onPressed: () {
-                  Get.to(Register());
+                  Get.toNamed(AppRoutes.register);
                 },
                 child: const Text("Don't have an account? Register here"),
               ),

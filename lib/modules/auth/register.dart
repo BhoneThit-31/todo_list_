@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:note_train_firebase_getx/app_routes.dart';
 import 'package:note_train_firebase_getx/modules/auth/auth_controller.dart';
 import 'package:note_train_firebase_getx/modules/auth/login.dart';
 
@@ -78,7 +79,7 @@ class Register extends StatelessWidget {
 
                 TextButton(
                   onPressed: () {
-                    Get.offAll(Login());
+                    Get.offAllNamed(AppRoutes.login);
                   },
                   child: const Text('Already have an account? Login'),
                 ),
