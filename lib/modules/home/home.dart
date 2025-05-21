@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:note_train_firebase_getx/modules/auth/auth_controller.dart';
 import 'package:note_train_firebase_getx/modules/home/home_controller.dart';
+import 'package:note_train_firebase_getx/modules/home/note_model.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -23,7 +24,7 @@ class Home extends StatelessWidget {
         ],
       ),
       body: Obx(() {
-        final todos = todoController.todoList;
+        final List<NoteModel> todos = todoController.todoList;
 
         if (todos.isEmpty) {
           return const Center(child: Text('No todos yet!'));
@@ -32,22 +33,22 @@ class Home extends StatelessWidget {
         return ListView.builder(
           itemCount: todos.length,
           itemBuilder: (context, index) {
-            final todo = todos[index];
+            final NoteModel todo = todos[index];
 
             return ListTile(
-              title: Text(todo['title']),
+              title: Text(todo.title),
               leading: Checkbox(
-                value: todo['isDone'] ?? false,
+                value: todo.isDone,
                 onChanged: (value) {
                   if (value != null) {
-                    todoController.toggleTodo(todo['id'], todo['isDone']);
+                    todoController.toggleTodo(todo.id, todo.isDone);
                   }
                 },
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.delete),
                 onPressed: () {
-                  todoController.deleteTodo(todo['id']);
+                  todoController.deleteTodo(todo.id);
                 },
               ),
             );
